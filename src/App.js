@@ -135,7 +135,7 @@ function App() {
         </>
       )}
       <footer className="footer">
-        <p>Copyright © 2025 HHY All Rights Reserved</p>
+        <p>Create by 🐳💜</p>
         <a href='https://github.com/Yu-1223/Toefl-Speaking-Timer.git' target='_blank' rel="noreferrer">
           <img src='/github.svg' alt='github' style={{objectFit: 'contain', width: '20px', height: '20px'}}/>
         </a>
