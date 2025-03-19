@@ -1,0 +1,67 @@
+.input-page-container {
+    max-width: 1000px;
+    width: 60%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .input-page-heading {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #111827;
+  }
+  
+  .input-page-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .input-page-select,
+  .input-page-input,
+  .input-page-textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+  
+  .input-page-select:focus,
+  .input-page-input:focus,
+  .input-page-textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  .input-page-textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .input-page-button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: rgb(174, 174, 174);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .input-page-button:hover {
+    background-color: gray;
+  }
+  

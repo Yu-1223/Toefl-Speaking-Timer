@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Container styling */
+.app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  background-color: #f3f4f6; /* light gray */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header layout */
+.header {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* Base button styles */
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-gray {
+  background-color: rgb(174, 174, 174);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Blue button variant */
+.button-blue {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-blue:hover {
+  background-color: #2563eb; /* blue-600 */
+  transform: translateY(-2px);
+}
+
+/* Green button variant */
+.button-green {
+  background-color: #10b981; /* green-500 */
+  color: white;
+}
+
+.button-green:hover {
+  background-color: #059669; /* green-600 */
+  transform: translateY(-2px);
+}
+
+.button-gray:hover {
+  background-color: gray;
+  transform: translateY(-2px);
 }
