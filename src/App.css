@@ -173,7 +173,6 @@
 }
 
 .footer {
-  position: fixed; /* Fixes it to the viewport */
   bottom: 0; /* Aligns to bottom */
   left: 0;
   width: 100%; /* Stretches across */
