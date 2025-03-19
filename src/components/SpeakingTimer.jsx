@@ -212,6 +212,7 @@ const styles = {
     maxWidth: '600px',
     margin: '0 auto',
     padding: '20px',
+    marginBottom: '60px',
   },
   readingBox: {
     border: '1px solid #ccc',
