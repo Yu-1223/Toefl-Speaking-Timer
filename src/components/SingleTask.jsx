@@ -93,13 +93,13 @@ const SingleTask = ({ task, title, passage }) => {
   
     return (
       <div style={styles.container}>
-        <h2>Task {task}</h2>
+        <h2 style={{ fontWeight: 'bold', textAlign: 'center' }}>Task {task}</h2>
   
         {/* ✅ Show reading material if in reading/prep */}
         {(phase === 'reading' || (phase === 'prep' && task === 1)) && (
           <div style={styles.readingBox}>
-            <p style={{ fontWeight: 'bold' }}>{title}</p>
-            <p style={{ whiteSpace: 'pre-wrap' }}>{passage}</p>
+            <p style={{ fontWeight: 'bold', textAlign: 'center' }}>{title}</p>
+            <p style={{ whiteSpace: 'pre-wrap', textAlign: 'left'}}>{passage}</p>
           </div>
         )}
   
@@ -113,29 +113,33 @@ const SingleTask = ({ task, title, passage }) => {
             </button>
           </div>
         )}
-  
-        {/* ✅ Timers */}
-        {phase === 'reading' && <p>Reading Time: {readingTime} sec</p>}
-        {phase === 'prep' && <p>Preparation Time: {prepTime} sec</p>}
-        {phase === 'speaking' && <p>Speaking Time: {speakTime} sec</p>}
-  
-        {/* ✅ Control buttons */}
-        {phase === 'idle' && (
-          <button onClick={startTask} style={styles.button}>
-            Start Task {task}
-          </button>
-        )}
-  
-        {phase !== 'idle' && phase !== 'listening' && (
-          <button onClick={togglePause} style={styles.button}>
-            {paused ? 'Resume' : 'Pause'}
-          </button>
-        )}
-  
-        {/* ✅ Restart Button always visible */}
-        <button onClick={restartTask} style={{ ...styles.button, backgroundColor: '#FA8072' }}>
-          Restart Task
-        </button>
+
+        <div style={styles.controlButton}>
+          {/* ✅ Timers */}
+          {phase === 'reading' && <p>Reading Time: {readingTime} sec</p>}
+          {phase === 'prep' && <p>Preparation Time: {prepTime} sec</p>}
+          {phase === 'speaking' && <p>Speaking Time: {speakTime} sec</p>}
+
+          <div style={styles.controlButtonGroup}>
+            {/* ✅ Control buttons */}
+            {phase === 'idle' && (
+              <button onClick={startTask} style={styles.button}>
+                Start
+              </button>
+            )}
+      
+            {phase !== 'idle' && phase !== 'listening' && (
+              <button onClick={togglePause} style={styles.button}>
+                {paused ? 'Resume' : 'Pause'}
+              </button>
+            )}
+      
+            {/* ✅ Restart Button always visible */}
+            <button onClick={restartTask} style={{ ...styles.button, backgroundColor: '#FA8072' }}>
+              Restart
+            </button>
+          </div>
+        </div>
       </div>
     );
   };
@@ -145,7 +149,6 @@ const styles = {
     maxWidth: '600px',
     margin: '0 auto',
     padding: '20px',
-    textAlign: 'center',
   },
   readingBox: {
     border: '1px solid #ccc',
@@ -172,7 +175,20 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.2s ease, transform 0.2s ease',
     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+    minWidth: '100px',
   },
+  controlButton: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  controlButtonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 };
 
 export default SingleTask;

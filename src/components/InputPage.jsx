@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './InputPage.css'; // Add CSS file here
 
-const InputPage = ({ readingMaterials, setReadingMaterials }) => {
+const InputPage = ({ readingMaterials, setReadingMaterials, isMobile }) => {
   const [selectedTask, setSelectedTask] = useState(1);
   const [title, setTitle] = useState(readingMaterials[selectedTask].title);
   const [passage, setPassage] = useState(readingMaterials[selectedTask].passage);
@@ -27,7 +27,7 @@ const InputPage = ({ readingMaterials, setReadingMaterials }) => {
   return (
     <div className="input-page-container">
       <h2 className="input-page-heading">Edit Task Content</h2>
-      <p style={{textAlign: 'center'}}>Click go to practice after editing to start.</p>
+      <p style={{textAlign: 'center'}}>Click Go To Practice after editing to start.</p>
 
       <label className="input-page-label">Select Task:</label>
       <select

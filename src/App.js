@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpeakingTimer from './components/SpeakingTimer';
 import SingleTask from './components/SingleTask';
 import InputPage from './components/InputPage'; // import the new component
@@ -7,6 +7,21 @@ import './App.css';
 function App() {
   const [task, setTask] = useState("task 1");
   const [showInputPage, setShowInputPage] = useState(true); // toggle between pages
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // ✅ Update screen size on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setShowSidebar(false); // close sidebar on big screen
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const [readingMaterials, setReadingMaterials] = useState({
     1: { title: '', passage: `Do you agree or disagree with the following statement?\nAll workers should be required to stop working and retire by age 65.\nUse details and examples to explain your opinion.` },
@@ -17,26 +32,82 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="header">
-        <button onClick={() => setShowInputPage(!showInputPage)} className="button button-gray">
-          {showInputPage ? "Go to Practice" : "Edit Tasks"}
-        </button>
-        <button onClick={() => setTask("task 1")} className="button button-blue">
-          Practice Task 1
-        </button>
-        <button onClick={() => setTask("task 2")} className="button button-blue">
-          Practice Task 2
-        </button>
-        <button onClick={() => setTask("task 3")} className="button button-blue">
-          Practice Task 3
-        </button>
-        <button onClick={() => setTask("task 4")} className="button button-blue">
-          Practice Task 4
-        </button>
-        <button onClick={() => setTask("all task")} className="button button-green">
-          Practice All Tasks
-        </button>
-      </header>
+      {isMobile && (
+        <header className='header-mobile'>
+          <div className='logo'>
+            <img src='/logo.png' alt='logo' style={{ width: '30px', height: '30px' }} />
+          </div>
+          <button onClick={() => setShowSidebar(!showSidebar)} className="menu-toggle">
+              <img src='/menu.png' alt='open menu' className='sidebar-icon' />
+          </button>
+        </header>
+      )}
+      {/* Sidebar - appears on mobile when toggled, always hidden on desktop */}
+      {isMobile && (
+        <aside className={`sidebar ${showSidebar ? 'show' : ''}`}>
+          {/* Content of sidebar is header-buttons on mobile */}
+          <div className='sidebar-content'>
+            <div> 
+              <button onClick={() => setShowSidebar(!showSidebar)} className="close-toggle">
+                  <img src='/close.png' alt='close menu' className='sidebar-icon' />
+              </button>
+            </div>
+            <div>
+            <button onClick={() => setShowInputPage(true)} className="sidebar-button">
+              Edit Tasks
+            </button>
+            <button onClick={() => {setTask("task 1"); setShowInputPage(false);}} className="sidebar-button">
+              Practice Task 1
+            </button>
+            <button onClick={() => {setTask("task 2"); setShowInputPage(false);}} className="sidebar-button">
+              Practice Task 2
+            </button>
+            <button onClick={() => {setTask("task 3"); setShowInputPage(false);}} className="sidebar-button">
+              Practice Task 3
+            </button>
+            <button onClick={() => {setTask("task 4"); setShowInputPage(false);}} className="sidebar-button">
+              Practice Task 4
+            </button>
+            <button onClick={() => {setTask("all task"); setShowInputPage(false);}} className="sidebar-button">
+              Practice All Tasks
+            </button>
+            </div>
+            
+          </div>
+        </aside>
+      )}
+
+      {/* Desktop Header (full content including buttons) */}
+      {!isMobile && (
+        <header className="header">
+          <div className='logo'>
+            <img src='/logo.png' alt='logo' style={{ width: '30px', height: '30px' }} />
+            <h2 style={{ textAlign: 'center' }}>TOEFL Speaking Timer</h2>
+          </div>
+          <div className='header-button'>
+            <button onClick={() => setShowInputPage(true)} className="button button-gray">
+              Edit Tasks
+            </button>
+            <button onClick={() => {setTask("task 1"); setShowInputPage(false);}} className="button button-blue">
+              Practice Task 1
+            </button>
+            <button onClick={() => {setTask("task 2"); setShowInputPage(false);}} className="button button-blue">
+              Practice Task 2
+            </button>
+            <button onClick={() => {setTask("task 3"); setShowInputPage(false);}} className="button button-blue">
+              Practice Task 3
+            </button>
+            <button onClick={() => {setTask("task 4"); setShowInputPage(false);}} className="button button-blue">
+              Practice Task 4
+            </button>
+            <button onClick={() => {setTask("all task"); setShowInputPage(false);}} className="button button-green">
+              Practice All Tasks
+            </button>
+          </div>
+        </header>
+      )}
+
+
 
       {!showInputPage ? (
         <>
@@ -57,8 +128,12 @@ function App() {
           )}
         </>
       ) : (
-        <InputPage readingMaterials={readingMaterials} setReadingMaterials={setReadingMaterials} />
+        <>
+          <InputPage readingMaterials={readingMaterials} setReadingMaterials={setReadingMaterials} isMobile={isMobile}/>
+          <button onClick={() => {setTask("all task"); setShowInputPage(false);}} style={{margin: '20px'}} className="button button-gray">Go To Practice</button>
+        </>
       )}
+      <p>Copyright © 2025 HHY All Rights Reserved</p>
     </div>
   );
 }

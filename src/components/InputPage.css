@@ -1,11 +1,11 @@
 .input-page-container {
-    max-width: 1000px;
-    width: 60%;
-    margin: 40px auto;
+    max-width: 800px;
+    width: 80%;
+    margin: 10px auto;
     padding: 30px;
     background-color: #f9fafb;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     font-family: 'Arial', sans-serif;
   }
   
