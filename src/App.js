@@ -54,22 +54,22 @@ function App() {
               </button>
             </div>
             <div>
-            <button onClick={() => setShowInputPage(true)} className="sidebar-button">
+            <button onClick={() => {setShowInputPage(true); setShowSidebar(false);}} className="sidebar-button">
               Edit Tasks
             </button>
-            <button onClick={() => {setTask("task 1"); setShowInputPage(false);}} className="sidebar-button">
+            <button onClick={() => {setTask("task 1"); setShowInputPage(false); setShowSidebar(false);}} className="sidebar-button">
               Practice Task 1
             </button>
-            <button onClick={() => {setTask("task 2"); setShowInputPage(false);}} className="sidebar-button">
+            <button onClick={() => {setTask("task 2"); setShowInputPage(false); setShowSidebar(false);}} className="sidebar-button">
               Practice Task 2
             </button>
-            <button onClick={() => {setTask("task 3"); setShowInputPage(false);}} className="sidebar-button">
+            <button onClick={() => {setTask("task 3"); setShowInputPage(false); setShowSidebar(false);}} className="sidebar-button">
               Practice Task 3
             </button>
-            <button onClick={() => {setTask("task 4"); setShowInputPage(false);}} className="sidebar-button">
+            <button onClick={() => {setTask("task 4"); setShowInputPage(false); setShowSidebar(false);}} className="sidebar-button">
               Practice Task 4
             </button>
-            <button onClick={() => {setTask("all task"); setShowInputPage(false);}} className="sidebar-button">
+            <button onClick={() => {setTask("all task"); setShowInputPage(false); setShowSidebar(false);}} className="sidebar-button">
               Practice All Tasks
             </button>
             </div>
