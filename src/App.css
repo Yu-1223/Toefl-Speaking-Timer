@@ -171,3 +171,20 @@
     margin-top: 0;
   }
 }
+
+.footer {
+  position: fixed; /* Fixes it to the viewport */
+  bottom: 0; /* Aligns to bottom */
+  left: 0;
+  width: 100%; /* Stretches across */
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #888;
+  border-top: 1px solid #ddd;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}

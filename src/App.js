@@ -36,6 +36,7 @@ function App() {
         <header className='header-mobile'>
           <div className='logo'>
             <img src='/logo.png' alt='logo' style={{ width: '30px', height: '30px' }} />
+            <h3 style={{ textAlign: 'center' }}>TOEFL Speaking Timer</h3>
           </div>
           <button onClick={() => setShowSidebar(!showSidebar)} className="menu-toggle">
               <img src='/menu.png' alt='open menu' className='sidebar-icon' />
@@ -133,7 +134,12 @@ function App() {
           <button onClick={() => {setTask("all task"); setShowInputPage(false);}} style={{margin: '20px'}} className="button button-gray">Go To Practice</button>
         </>
       )}
-      <p>Copyright © 2025 HHY All Rights Reserved</p>
+      <footer className="footer">
+        <p>Copyright © 2025 HHY All Rights Reserved</p>
+        <a href='https://github.com/Yu-1223/Toefl-Speaking-Timer.git' target='_blank' rel="noreferrer">
+          <img src='/github.svg' alt='github' style={{objectFit: 'contain', width: '20px', height: '20px'}}/>
+        </a>
+      </footer>
     </div>
   );
 }
