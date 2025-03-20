@@ -131,7 +131,7 @@ function App() {
       ) : (
         <>
           <InputPage readingMaterials={readingMaterials} setReadingMaterials={setReadingMaterials} isMobile={isMobile}/>
-          <button onClick={() => {setTask("all task"); setShowInputPage(false);}} style={{margin: '20px'}} className="button button-gray">Go To Practice</button>
+          <button onClick={() => {setTask("all task"); setShowInputPage(false);}} style={{marginBottom: '90px', marginTop: '20px'}} className="button button-gray">Go To Practice</button>
         </>
       )}
       <footer className="footer">
